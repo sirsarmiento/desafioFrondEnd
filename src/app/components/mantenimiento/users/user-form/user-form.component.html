@@ -1,0 +1,51 @@
+<div class="editContainer">
+  <form class="formEdit" [formGroup]="editForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <mat-label>USUARIO</mat-label>
+          <input type="text" formControlName="username" class="form-control" value="" autofocus />
+        </div>
+        <div class="col text-danger">
+          <p *ngIf="campoNoValido('username')">* El nombre del usuario es obligatorio</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <mat-label>ROLES</mat-label>
+        <div class="form-group" *ngFor="let r of roles; let i=index" class="col-md-2">
+          <label class="maxContent">
+            <input type="checkbox" [value]="r.rolName" (change)="onCheckChange($event)">
+            {{r.rolName}}
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+            <mat-label>ESTATUS</mat-label>
+            <div class="form-group" class="col-md-2">
+              <label class="maxContent">
+                <input type="checkbox" formControlName="estatus">
+                VIGENTE
+              </label>
+            </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button [disabled]="loading" class="btn-orange btn-block" (click)="edit()">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          GUARDAR
+        </button>
+      </div>
+      <div class="col-6">
+        <button [disabled]="loading" class="btn-dark btn-block" (click)="delete()">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          ELIMINAR
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

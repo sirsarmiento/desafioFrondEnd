@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v82/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  }
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
+/* body{
+    background-image: url(../src/assets/fondo.png);
+    -webkit-background-size:cover;
+    //background-size: cover;
+} */
+
+/* https://stackoverflow.com/a/48689004/9263761 */
+mat-dialog-container#modal-component {
+    border: 3px solid #262626;
+    border-radius: 11px;
+    background-color: white;
+    color: black;
+    overflow-y: hidden;
+}
+
+.btn-block{
+    background-color: #f84d00;
+    height: 40px;
+    color: white;
+    border-radius: 15px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.marginTop{
+    margin-top: 10px;
+    margin-left: 10px  !important;
+}
+
+.maxContent{
+    width: max-content;
+  }
+
+.toUpperCase{
+    text-transform:uppercase;
+}
+
+.card-header{
+    background: antiquewhite !important;
+}
+
+.mat-drawer-content {
+    margin-left: 90px !important;
+}
+
+.title{
+    background: darkgray;
+    text-align: center;
+    margin-bottom: 15px;
+    height: 32px;
+    font-size: larger;
+    font-weight: bold;
+}

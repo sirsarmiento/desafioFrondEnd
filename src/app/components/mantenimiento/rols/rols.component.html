@@ -1,0 +1,52 @@
+<div class="row marginTop">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                LISTADO DE ROLES
+            </div>
+            <div class="card-body">
+                <ag-grid-angular 
+                    style="width: 320px; height: 400px;" 
+                    class="ag-theme-balham"
+                    [rowData]="rowData" 
+                    [columnDefs]="columnDefs"
+                    [pagination]="true" 
+                    [paginationAutoPageSize]="true" 
+                    (cellClicked)='onCellClicked($event)'
+                    (selectionChanged) = 'onSelectionChanged($event)'
+                    [floatingFilter]="true"
+                    [animateRows]="true" 
+                    [animateRows]="true" 
+                    *ngIf="AgLoad" 
+                > 
+                </ag-grid-angular>
+            </div>
+        </div>
+        <button [disabled]="loading" class="btn-orange btn-block" (click)="showAddForm()">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            CREAR
+        </button>
+
+    </div>
+    <div class="col-4" *ngIf="!closeEditComponent">
+        <div class="card" *ngIf="mode === 'CREATE'">
+            <div class="card-header">
+                CREAR ROL
+            </div>
+            <div class="card-body">
+                <app-register  class="content" (updateData)="refreshTable($event)"></app-register>
+            </div>
+        </div>
+        <div class="card" *ngIf="mode === 'EDIT'">
+            <div class="card-header">
+                ACTUALIZAR ROL
+            </div>
+            <div class="card-body">
+                <user-form  class="content" [rolEdit]="selectedRow" (updateData)="refreshTable($event)"></user-form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

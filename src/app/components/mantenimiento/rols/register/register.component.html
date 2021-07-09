@@ -1,0 +1,21 @@
+<div class="addContainer">
+    <form class="formEdit" [formGroup]="registerForm">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <mat-label>ROL</mat-label>
+            <input type="text" formControlName="rolName" class="form-control toUpperCase" value="" autofocus [ngClass]="{ 'is-invalid': submitted && f.rolName.errors }" />
+            <div *ngIf="submitted && f.rolName.errors" class="invalid-feedback">
+                <div *ngIf="f.rolName.errors.required">Ingrese el Rol</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button [disabled]="loading" class="btn-orange btn-block" (click)="add()">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Guardar
+        </button>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,22 @@
+<div class="menu">
+    <ul class="list">
+        <ng-template ngFor let-menuItem [ngForOf]="menuItems" let-mainMenuItemIndex="index">
+            <li routerLinkActive="active">
+                <a href="javascript:void(0)" (click)="showSubMenu(mainMenuItemIndex)" [ngClass]="{'menu-toggle': menuItem.items.length}" *ngIf="menuItem.items.length">
+                    <em *ngIf="menuItem.icon" class="material-icons">{{menuItem.icon}}</em>
+                    <span>{{menuItem.name}}</span>
+                </a>
+                <ul class="ml-menu" *ngIf="menuItem.showSubMenu">
+                    <ng-template ngFor let-subMenuItem [ngForOf]="menuItem.items" let-mainMenuItemIndex="index">
+                        <li *ngIf="showMenuItem(subMenuItem)" routerLinkActive="active">
+                            <a [routerLink]="[subMenuItem.route]" class="toggled" *ngIf="!subMenuItem.items.length && subMenuItem.route.indexOf('http') != 0">
+                                <em *ngIf="subMenuItem.icon" class="material-icons">{{subMenuItem.icon}}</em>
+                                <span>{{subMenuItem.name}}</span>
+                            </a>
+                        </li>
+                    </ng-template>
+                </ul>
+            </li>
+        </ng-template>
+    </ul>
+</div>
